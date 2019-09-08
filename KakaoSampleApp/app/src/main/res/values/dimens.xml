@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+
+    <dimen name="two_line_text_height">64dp</dimen>
+    <dimen name="three_line_item_height">88dp</dimen>
+
+    <dimen name="list_title_text_size">16sp</dimen>
+    <dimen name="list_subtitle_text_size">14sp</dimen>
+</resources>

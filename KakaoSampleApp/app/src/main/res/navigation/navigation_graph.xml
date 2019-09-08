@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/newArrivalsFragment">
+
+    <fragment
+        android:id="@+id/newArrivalsFragment"
+        android:name="io.github.pps5.kakaosampleapp.feature.newarrivals.NewArrivalsFragment"
+        android:label="@string/label_new_arrivals">
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="io.github.pps5.kakaosampleapp.feature.search.SearchFragment"
+        android:label="@string/label_search_results">
+        <action
+            android:id="@+id/action_searchFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="io.github.pps5.kakaosampleapp.feature.detail.EventDetailFragment"
+        android:label="{title}">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+</navigation>

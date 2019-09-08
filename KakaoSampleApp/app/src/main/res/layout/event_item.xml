@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="event"
+            type="io.github.pps5.kakaosampleapp.data.entity.Event" />
+
+        <variable
+            name="listener"
+            type="io.github.pps5.kakaosampleapp.feature.search.SearchResultAdapter.OnClickEventListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/three_line_item_height"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> listener.onClick(event)}"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/ListTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{event.title}"
+            app:layout_constraintBottom_toTopOf="@id/started_at"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Event title" />
+
+        <TextView
+            android:id="@+id/started_at"
+            style="@style/ListSubTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            bind:date="@{event.startedAt}"
+            app:layout_constraintBottom_toTopOf="@id/catch_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="2019/07/15" />
+
+        <TextView
+            android:id="@+id/catch_text"
+            style="@style/ListSubTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{event.catch}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/started_at"
+            tools:text="Event catch text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="entry"
+            type="io.github.pps5.kakaosampleapp.data.entity.Entry" />
+        
+        <variable
+            name="listener"
+            type="io.github.pps5.kakaosampleapp.feature.newarrivals.NewArrivalsAdapter.OnClickItemListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_line_text_height"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> listener.onClick(entry)}"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/ListTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{entry.title}"
+            app:layout_constraintBottom_toTopOf="@id/published_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="サンプルイベント" />
+
+        <TextView
+            android:id="@+id/published_title"
+            style="@style/ListSubTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/published_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/published"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/published"
+            style="@style/ListSubTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:textColor="@color/text_list_subtitle"
+            android:textSize="@dimen/list_subtitle_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/published_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/published_title"
+            app:layout_constraintTop_toTopOf="@id/published_title"
+            bind:date="@{entry.published}"
+            tools:text="2019/07/11" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

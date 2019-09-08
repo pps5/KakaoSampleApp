@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KakaoSampleApp</string>
+    <string name="label_new_arrivals">新着イベント</string>
+    <string name="label_search_results">{query}の検索結果</string>
+    <string name="search">検索</string>
+    <string name="published_title">公開日</string>
+    <string name="loading_error">読み込み中にエラーが発生しました</string>
+    <string name="open_event_page">イベントページを開く</string>
+    <string name="no_event_found">イベントが見つかりませんでした</string>
+</resources>
