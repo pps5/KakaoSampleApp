@@ -16,7 +16,6 @@ import org.threeten.bp.LocalDateTime
 class ConnpassRepository : KoinComponent, HasDispatchers {
 
     companion object {
-        private const val SEARCH_DELAY_IN_MILLIS = 1_000L
         private val TAG = ConnpassRepository::class.java.simpleName
     }
 
